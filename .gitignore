@@ -1,0 +1,26 @@
+# Dependencies
+**/node_modules/
+**/.vite/
+
+# Builds and logs
+**/dist/
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+
+# Local databases and secrets
+*.db
+*.sqlite
+*.sqlite3
+
+# Operating system and editor files
+.DS_Store
+.vscode/
+.idea/
