@@ -4,6 +4,7 @@ import { useAuthStore } from '../store/authStore';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { ShieldAlert } from 'lucide-react';
+import { api } from '../lib/api';
 
 export default function Login() {
     const [username, setUsername] = useState('');
@@ -19,11 +20,11 @@ export default function Login() {
             params.append('username', username.trim());
             params.append('password', password.trim());
 
-            const res = await axios.post('http://localhost:8000/api/auth/login', params, {
+            const res = await api.post('/api/auth/login', params, {
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
             });
 
-            const userRes = await axios.get('http://localhost:8000/api/auth/me', {
+            const userRes = await api.get('/api/auth/me', {
                 headers: { Authorization: `Bearer ${res.data.access_token}` }
             });
 
